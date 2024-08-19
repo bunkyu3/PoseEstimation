@@ -1,0 +1,6 @@
+venv/
+results/
+data/interim/*
+data/processed/*
+data/raw/*
+**/__pycache__/

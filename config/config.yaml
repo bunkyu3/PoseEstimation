@@ -1,0 +1,31 @@
+hydra:
+  run:
+    dir: "/dev/null" #outputsが出力されないようにする
+  sweep:
+    dir: "/dev/null" #パラメータスイープ時もoutputsが出力されないようにする
+
+mlflow:
+  enable: True
+  experiment_name: "Default"
+  tracking_dir: "results/mlruns" # run_experiments.pyからの相対パスを書く
+  write_loc: # tracking_dirからの相対パスを書く（ファイル名は不要）
+    config: ""  
+    best_model: ""
+    valimage_dir:  "Train/ValImage"
+
+
+local:
+  read_loc: # run_experiments.pyからの相対パスを書く
+    rawdata_dir: "data/raw/preprocessed"
+    csv: "data/csvs/dataset1.csv"
+  write_loc: # run_experiments.pyからの相対パスを書く
+    config: "results/output/config.yaml"
+    best_model: "results/output/best_model.pth"
+    valimage_dir:  "results/output/Train/ValImage"
+
+hparam:
+  num_epochs: 2
+  train_batch_size: 2
+  val_batch_size: 2
+  learning_rate: 0.001
+  test_batch_size: 8
